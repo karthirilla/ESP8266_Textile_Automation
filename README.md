@@ -2,109 +2,137 @@
 
 ## Overview
 
-The **ESP8266 Textile Automation** project is designed to monitor and control textile machinery in an industrial environment. The project leverages the **ESP8266**, a low-cost Wi-Fi module, to provide an IoT solution for textile machines, helping reduce operational costs while increasing efficiency.
+The **ESP8266 Textile Automation** project uses the **ESP8266** microcontroller to automate the monitoring and control of textile machines in an IoT-based environment. The system monitors machine status such as operational state, based on **machine angle** and **movement**. It is designed to reduce product costs by integrating low-cost, widely available **ESP8266** components with IoT technologies, making it ideal for industrial applications in textile manufacturing.
 
-The system is designed to monitor the machine's status (whether it's running or idle) based on its **machine angle** and **movement**. This information is sent over a network to a central monitoring system for real-time updates.
-
-Since this is part of a company project, some data and design details are confidential. However, the project showcases the implementation of the ESP8266 in an industrial IoT environment to automate the monitoring and control processes in the textile industry.
+As this project is part of a company initiative, some data and hardware designs are confidential. However, the following documentation provides a clear overview of the project, including the core features, components, and technologies used.
 
 ### Key Features
 
-- **ESP8266**: Low-cost Wi-Fi module that connects the textile machinery to the cloud or a local monitoring system.
-- **Machine Monitoring**: Measures the **machine angle** and detects its **movement** to determine if the machine is running.
-- **Real-Time Data**: Sends real-time machine status data (running or idle) to a central system over Wi-Fi.
-- **Cost Reduction**: Uses ESP8266 to lower the overall system cost while providing an efficient IoT solution.
-- **Confidential Implementation**: The detailed hardware design, programming, and system data are confidential due to the proprietary nature of the project.
+- **ESP8266 Microcontroller**: A low-cost, reliable microcontroller that provides essential Wi-Fi capabilities for IoT applications.
+- **Machine Status Monitoring**: Detects machine **angle** and **movement** to monitor whether the machine is running or idle.
+- **Remote Configuration**: Full software support for remote system configuration and management via the cloud or local servers.
+- **OTA Firmware Updates**: Enables firmware updates remotely without needing physical access to the device.
+- **FTP Communication**: Supports file transfer between devices using **FTP**, ensuring data synchronization and backup.
+- **Offline Data Storage**: Stores data locally when network connectivity is unavailable and syncs once the connection is restored.
+- **Industrial-Grade Design**: The system integrates with the textile industry's industrial standards for reliability and efficiency.
 
 ## System Components
 
-1. **ESP8266 Module**: The core of the system, enabling Wi-Fi communication and data transmission.
-2. **Sensors**: Used to detect the **machine angle** and **movement** of the textile machine.
-3. **Power Supply**: Provides the necessary power for the ESP8266 module and sensors.
-4. **PCBA Design**: Custom PCB design created for the system to ensure reliable operation in an industrial environment.
-5. **Machine Interface**: Interfaces with the textile machine to monitor its operational status.
+1. **ESP8266 Microcontroller**: The central processing unit responsible for data processing, machine status monitoring, and communication over Wi-Fi.
+2. **Sensors**: Monitor the **machine angle** and **movement** to determine if the textile machine is running or idle.
+3. **PCB Design**: Custom-designed PCB with integrated components for power management, sensors, and Wi-Fi communication.
+4. **Power Supply**: Ensures stable and reliable power for the ESP8266 and connected peripherals.
+5. **Communication Protocols**: The system uses **FTP** for file synchronization and **MQTT** for real-time communication.
+6. **Relays/Actuators**: Control systems such as motor operation and provide alerts based on machine status.
+7. **External Hardware Integration**: Supports additional sensors and actuators as needed for more complex machine monitoring.
 
 ## Features in Detail
 
-### 1. **ESP8266 Wi-Fi Communication**
-The ESP8266 is utilized to send real-time data from the textile machine to a remote monitoring system. By using Wi-Fi, it ensures low-cost communication without the need for additional wired infrastructure. This enables easy scalability for large-scale textile facilities.
+### 1. **ESP8266 for IoT**
+The **ESP8266** microcontroller serves as the core of the system, offering the following:
+- Wi-Fi capabilities for seamless communication over networks.
+- Cost-effective solution suitable for large-scale deployments in industrial automation.
 
 ### 2. **Machine Status Monitoring**
-Sensors are integrated to measure:
-- **Machine Angle**: Detects the position of the machine, ensuring it is running or idle.
-- **Machine Movement**: Detects the machine’s movement to track its operational status.
+The **ESP8266** works with external sensors to determine the machine's operational state:
+- **Machine Angle**: Sensors track the machine's angle to determine its position.
+- **Machine Movement**: Movement detection indicates whether the machine is running or idle.
+- The collected data is transmitted to a central system for real-time monitoring.
 
-These sensor readings are processed by the ESP8266, which then determines whether the machine is actively running or not.
+### 3. **Remote System Configuration**
+The system is capable of remote configuration, allowing operators to:
+- Adjust settings remotely.
+- Monitor the machine’s operational status.
+- Diagnose potential issues without physical interaction.
 
-### 3. **Real-Time Data Transmission**
-Data collected by the sensors is sent via Wi-Fi to a central monitoring system. The system receives real-time updates on the machine's status, allowing operators to monitor the health and performance of the machines remotely.
+Configuration is done via **cloud-based platforms** or **local servers**, making management easier and more efficient.
 
-### 4. **Cost-Efficient Design**
-By utilizing the **ESP8266**, a cost-effective microcontroller with built-in Wi-Fi, the overall system cost is significantly reduced compared to traditional wired solutions. This makes the automation system more accessible for small to medium-sized textile manufacturers.
+### 4. **OTA Firmware Updates**
+The **ESP8266** supports **OTA (Over-The-Air)** updates, allowing remote firmware upgrades without needing direct access to the hardware. This feature is critical for maintaining software updates and improving functionality across all deployed devices.
 
-### 5. **Custom PCB Design**
-The **PCB design** is custom-made to support the hardware and ensure seamless integration with the textile machinery. The design also includes necessary components for power management, signal processing, and Wi-Fi communication.
+### 5. **FTP for File Transfer**
+The system uses **FTP** to synchronize files between the device and a server:
+- Data logs, configuration files, and sensor data can be transferred to remote servers for backup and analysis.
+- FTP is used to download configuration updates or other necessary files to the ESP8266.
+
+### 6. **Offline Data Storage**
+In the event of network failure, the **ESP8266** can store critical data locally in **EEPROM** or **SPIFFS** (SPI Flash File System). Once the network is restored, the stored data is uploaded to the central server or cloud for processing.
+
+### 7. **Communication Protocols**
+- **MQTT**: Ensures real-time communication of machine status data to a central system.
+- **FTP**: Used for file transfer, data synchronization, and backup.
+
+---
 
 ## Hardware and Software Components
 
 ### Hardware
 
-1. **ESP8266 Wi-Fi Module**
-2. **Sensors for Machine Angle and Movement Detection** (e.g., encoders, accelerometers, or proximity sensors)
-3. **PCB Design** for sensor integration and ESP8266 connectivity
-4. **Power Supply** for ESP8266 and sensors
+1. **ESP8266 Microcontroller**
+2. **Sensors** for **machine angle** and **movement** detection, providing data to monitor the operational state of the machine.
+3. **Relay Modules**: Used to control machines and actuators based on sensor data and remote instructions.
+4. **Power Supply**: Ensures a stable power supply for the **ESP8266** and sensors.
+5. **PCB Design**: A custom-designed PCB that integrates the **ESP8266**, sensors, and communication interfaces, ensuring efficient operation.
+6. **External Hardware Integration**: The design allows for additional sensors or actuators to be added as needed.
+7. **Relay/Actuators**: Controls systems based on the machine’s operational state.
 
 ### Software
 
-1. **Firmware for ESP8266**: Written to handle data acquisition from the sensors, process it, and send it over Wi-Fi.
-2. **Central Monitoring System**: A web application or local server that receives and displays the machine status in real-time.
+1. **ESP8266 Firmware**: Written in C++ using the **Arduino IDE**, this firmware handles sensor data acquisition, Wi-Fi communication, and data synchronization via **MQTT** and **FTP**.
+2. **OTA Update System**: Ensures that firmware is kept up-to-date through remote updates, reducing the need for physical intervention.
+3. **FTP Support**: FTP functionality allows for seamless file synchronization and data backup.
+4. **Offline Data Storage**: Uses **SPIFFS** or **EEPROM** to store data locally until it can be uploaded once the network is restored.
+5. **Web-based or App-based Remote Configuration**: Allows for cloud or local server-based management of the system.
 
 ---
 
 ## Design and Development Process
 
 ### 1. **PCB Design**
-The **PCB** was designed to accommodate the ESP8266 and sensors while ensuring robust performance in the industrial environment. Special consideration was given to:
-- **Signal Integrity**: Ensuring stable sensor readings.
-- **Power Management**: Proper power distribution to the ESP8266 and other components.
-- **Wi-Fi Antenna Placement**: Ensuring reliable Wi-Fi communication in the factory setting.
+The **PCB design** ensures that the system is both cost-effective and reliable. It accommodates the **ESP8266**, power management components, sensors, and external connectors for IoT communication.
 
 ### 2. **Firmware Development**
-The **firmware** for the ESP8266 handles the communication between the sensors and the central system. It:
-- Reads data from the machine angle and movement sensors.
-- Processes the sensor data to determine the operational status of the machine.
-- Sends this data to a central server via Wi-Fi for real-time monitoring.
+The firmware was developed to manage:
+- Sensor readings and interpretation.
+- Data communication via **MQTT** and **FTP**.
+- **OTA updates** for easy firmware maintenance.
+- **Offline storage** of data, ensuring no data loss.
 
 ### 3. **PCBA Assembly and Testing**
-Once the PCB design was finalized, the **PCBA assembly** was carried out. After assembly, the system was thoroughly tested to ensure:
-- Accurate machine status detection.
-- Reliable Wi-Fi communication.
-- Proper power handling.
+The PCB assembly (**PCBA**) was carefully tested to ensure:
+- Accurate sensor data acquisition.
+- Reliable FTP transfers and data synchronization.
+- Smooth **OTA** update process.
+- Efficient offline data storage and restoration once the network is available.
 
 ---
 
 ## Confidentiality Notice
 
-Due to the proprietary nature of the project, certain aspects of the **hardware design**, **software architecture**, and **sensor data handling** are confidential and cannot be shared publicly. The information provided here serves as an overview of the system's functionality and technical implementation.
+This project is part of a company initiative, and many details related to the **hardware design**, **sensor integration**, and **data processing** are proprietary and confidential. The provided documentation aims to give an overview of the project’s key features while respecting confidentiality agreements.
 
 ---
 
 ## Contributing
 
-As this project is part of a company initiative and contains confidential information, contributions are not open to the public. However, if you have any queries or would like to discuss similar projects, feel free to reach out.
+As this project is part of a company’s internal initiative, contributions from external sources are not open. However, if you have any questions or would like to discuss similar projects, feel free to reach out.
 
 ---
 
 ## License
 
-This project is proprietary and not open source.
+This project is proprietary and is not open-source.
 
 ---
 
 ## Acknowledgments
 
-- **ESP8266**: Thanks to the creators of the ESP8266 for providing an affordable and reliable Wi-Fi module.
-- **Textile Industry**: The project is designed to improve automation in the textile industry by integrating IoT solutions to reduce costs and increase efficiency.
+- **ESP8266**: Thanks to Espressif for providing a reliable and cost-effective solution for IoT applications.
+- **Textile Industry**: The project is designed to automate and monitor textile machines, providing efficiency and reducing costs in the industry.
 
 ---
 
+## Additional Notes
+
+- This system is fully scalable and can be expanded to monitor multiple textile machines across a factory floor.
+- The **ESP8266** offers an affordable and powerful solution for textile automation.
