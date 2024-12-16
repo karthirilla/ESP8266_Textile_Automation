@@ -6,6 +6,13 @@ The **ESP8266 Textile Automation** project uses the **ESP8266** microcontroller 
 
 As this project is part of a company initiative, some data and hardware designs are confidential. However, the following documentation provides a clear overview of the project, including the core features, components, and technologies used.
 
+# ESP8266 Textile Automation
+
+| **Front View**                                                               | **Back View**                                                               |
+|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| ![Front](https://github.com/karthirilla/ESP8266_Textile_Automation/blob/main/ESP8266_TEXTILE_AUTOMATION_FRONT.jpg) | ![Back](https://github.com/karthirilla/ESP8266_Textile_Automation/blob/main/ESP8266_TEXTILE_AUTOMATION_BACK.jpg) |
+
+
 ### Key Features
 
 - **ESP8266 Microcontroller**: A low-cost, reliable microcontroller that provides essential Wi-Fi capabilities for IoT applications.
